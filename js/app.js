@@ -73,7 +73,7 @@ const buystt = async () => {
     );
   }
 
-  let ethval = inputField.value;
+  let ethval = buyinput.value;
   if (ethval >= 0.01) {
     const decimals = Math.pow(10, 18);
     ethval = ethval * decimals;
