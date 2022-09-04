@@ -77,15 +77,17 @@ const buystt = async () => {
   if (ethval >= 0.01) {
     const decimals = Math.pow(10, 18);
     ethval = ethval * decimals;
-
+    Swal.showLoading();
     sttcontract.methods
       .buyOnPresale()
       .send({ from: addr, value: ethval })
       .then(
         function (error, result) {
+          Swal.hideLoading();
           Swal.fire("Success!", "Thank you for your purchase!", "info");
         },
         function (e, processedContract) {
+          Swal.hideLoading();
           Swal.fire("Error!", "Transaction rejected!", "error");
         }
       );
